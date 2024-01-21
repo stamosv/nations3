@@ -1,0 +1,44 @@
+<h2>Country Details</h2>
+
+<div>
+
+  <form [formGroup]="filterForm" (ngSubmit)="applyFilters()">
+    <label for="regionFilter">Region:</label>
+    <select id="regionFilter" formControlName="region">
+      <option value="">All Regions</option>
+      <option *ngFor="let region of regions" [value]="region">{{ region }}</option>
+    </select>
+
+    <label for="fromYearFilter">From Year:</label>
+    <input type="number" id="fromYearFilter" formControlName="fromYear"/>
+
+    <label for="toYearFilter">To Year:</label>
+    <input type="number" id="toYearFilter" formControlName="toYear"/>
+
+    <button type="submit">Apply Filters</button>
+    <button type="button" (click)="cancel()">Cancel</button>
+  </form>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Continent</th>
+      <th>Region</th>
+      <th>Country</th>
+      <th>Year</th>
+      <th>Population</th>
+      <th>GDP</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of countryDetailsData">
+      <td>{{ data.continentName }}</td>
+      <td>{{ data.regionName }}</td>
+      <td>{{ data.countryName }}</td>
+      <td>{{ data.year }}</td>
+      <td>{{ data.population }}</td>
+      <td>{{ data.gdp }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

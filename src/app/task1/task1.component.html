@@ -1,0 +1,11 @@
+<p>Task1:</p>
+
+<ul>
+  <li *ngFor="let country of countryDtoList">
+    <div (click)="redirectToCountryDetails(country.countryId)">
+    <p>Name: {{ country.name }}</p>
+    <p>Area: {{ country.area }}</p>
+    <p>Country Code 2: {{ country.countryCode2 }}</p>
+    </div>
+  </li>
+</ul>
